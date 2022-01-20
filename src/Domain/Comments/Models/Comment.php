@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Comments\Models;
 
 use Database\Factories\CommentFactory;

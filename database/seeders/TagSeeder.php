@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use Domain\Tags\Models\Tag;
@@ -9,6 +11,6 @@ class TagSeeder extends Seeder
 {
     public function run(): void
     {
-        Tag::factory(10)->create();
+        Tag::factory(20)->create();
     }
 }

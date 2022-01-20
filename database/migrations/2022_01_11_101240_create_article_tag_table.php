@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +17,7 @@ class CreateArticleTagTable extends Migration
 
     public function up(): void
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::create($this->table, static function (Blueprint $table) {
             $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
         });

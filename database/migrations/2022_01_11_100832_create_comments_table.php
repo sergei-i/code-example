@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Domain\Comments\Models\Comment;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +18,7 @@ class CreateCommentsTable extends Migration
 
     public function up(): void
     {
-        Schema::create($this->table, function (Blueprint $table) {
+        Schema::create($this->table, static function (Blueprint $table) {
             $table->id();
 
             $table->string('subject');

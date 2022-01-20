@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use Domain\Articles\Models\Article;
@@ -18,14 +20,14 @@ class ArticleSeeder extends Seeder
     {
         $tags = Tag::all();
 
-        $articles = Article::factory(10)
+        $articles = Article::factory(20)
             ->has(Counter::factory())
             ->create();
 
         $articles->each(
             function (Article $article) use ($tags) {
                 $article->comments()->saveMany(Comment::factory()->count(random_int(1, 5))->make());
-                $article->tags()->attach($tags->random(random_int(1, 5)));
+                $article->tags()->attach($tags->random(random_int(1, 3)));
             }
         );
     }

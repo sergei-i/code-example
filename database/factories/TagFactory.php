@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Domain\Tags\Models\Tag;
@@ -12,7 +14,10 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'label' => $this->faker->word,
+            'label' => $this->faker->words(
+                $this->faker->numberBetween(1, 2),
+                true
+            ),
         ];
     }
 }

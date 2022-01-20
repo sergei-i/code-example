@@ -11,9 +11,12 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "^3.4",
+        "spatie/data-transfer-object": "^3.7",
+        "spatie/laravel-query-builder": "^4.0"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "barryvdh/laravel-ide-helper": "^2.11",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
@@ -27,8 +30,12 @@
             "App\\": "app/",
             "Domain\\": "src/Domain",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+            "Database\\Seeders\\": "database/seeders/",
+            "Support\\": "src/Support"
+        },
+        "files" : [
+            "src/Support/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

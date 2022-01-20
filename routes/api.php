@@ -1,19 +1,23 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
+use Domain\Articles\Controllers\API\V1\ArticleStoreCommentController;
+use Domain\Articles\Controllers\API\V1\ArticleController;
+use Domain\Articles\Controllers\API\V1\ArticleDecrementLikeController;
+use Domain\Articles\Controllers\API\V1\ArticleIncrementLikeController;
+use Domain\Articles\Controllers\API\V1\ArticleIncrementViewController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::prefix('v1')->group(function () {
+    Route::prefix('articles')->group(function () {
+        Route::get('/{article:slug}', [ArticleController::class, 'show']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+        Route::prefix('{article}')->group(function () {
+            Route::put('views/increment', ArticleIncrementViewController::class);
+            Route::put('likes/increment', ArticleIncrementLikeController::class);
+            Route::put('likes/decrement', ArticleDecrementLikeController::class);
+            Route::post('comments/store', ArticleStoreCommentController::class);
+        });
+    });
 });

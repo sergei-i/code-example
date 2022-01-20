@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Domain\Articles\Models\Article;
@@ -12,12 +14,12 @@ class ArticleFactory extends Factory
 
     public function definition(): array
     {
-        $title = $this->faker->sentence(10);
+        $title = $this->faker->sentence(5);
 
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'content' => $this->faker->paragraph(100),
+            'content' => $this->faker->paragraph(30),
             'image' => config('services.placeholder_url'),
             'created_at' => $this->faker->dateTimeBetween('-1 years'),
         ];
