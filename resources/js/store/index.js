@@ -9,13 +9,4 @@ export default new Vuex.Store({
     modules: {
         article,
     },
-    state: {
-        slug: '',
-    },
-    mutations: {
-        SET_SLUG(state, payload) {
-            state.slug = payload;
-        }
-    }
 });
-

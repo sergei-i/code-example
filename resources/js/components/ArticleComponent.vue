@@ -9,17 +9,17 @@
             <h5 class="mt-5">
                 {{ article.title }}
             </h5>
-            <p>
-        <span
-            class="tag"
-            v-for="(tag, index) in tags"
-            :key="tag.id"
-        >
-            <span>
-                {{ tag.label }}
-                <span v-if="tags.length !== (index + 1)">|</span>
-            </span>
-        </span>
+            <p v-if="tags.length">
+                <span
+                    class="tag"
+                    v-for="(tag, index) in tags"
+                    :key="tag.id"
+                >
+                    <span>
+                        {{ tag.label }}
+                        <span v-if="tags.length !== (index + 1)">|</span>
+                    </span>
+                </span>
             </p>
             <p class="card-text">
                 {{ article.content }}

@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="app">
+<div id="app" data-article-id="{{ $article->id }}">
    <article-component></article-component>
    <hr>
    <comments-component></comments-component>
 </div>
-
 @endsection
 
 @section('vue')

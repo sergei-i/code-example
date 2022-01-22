@@ -60,29 +60,31 @@
         >
             Комментарий успешно отправлен!
         </div>
-        <div
-            class="toast-container pb-2 mt-4 mx-auto"
-            style="min-width: 100%;"
-            v-for="comment in comments"
-            :key="comment.id"
-        >
-            <div class="toast-header">
-                <img
-                    src="https://via.placeholder.com/50/5F113B/FFFFFF/?text=User"
-                    class="rounded me-2"
-                    alt="..."
-                >
-                <strong class="me-auto">
-                    {{ comment.subject }}
-                </strong>
-                <small class="text-muted">
-                    {{ comment.createdAt }}
-                </small>
+        <template v-if="comments.length">
+            <div
+                class="toast-container pb-2 mt-4 mx-auto"
+                style="min-width: 100%;"
+                v-for="comment in comments"
+                :key="comment.id"
+            >
+                <div class="toast-header">
+                    <img
+                        src="https://via.placeholder.com/50/5F113B/FFFFFF/?text=User"
+                        class="rounded me-2"
+                        alt="..."
+                    >
+                    <strong class="me-auto">
+                        {{ comment.subject }}
+                    </strong>
+                    <small class="text-muted">
+                        {{ comment.createdAt }}
+                    </small>
+                </div>
+                <div class="toast-body">
+                    {{ comment.body }}
+                </div>
             </div>
-            <div class="toast-body">
-                {{ comment.body }}
-            </div>
-        </div>
+        </template>
     </div>
 </template>
 

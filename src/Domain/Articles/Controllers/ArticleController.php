@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Domain\Articles\Controllers;
 
 use App\Http\Controllers\Controller;
+use Domain\Articles\Models\Article;
 use Domain\Articles\Queries\ArticleIndexQuery;
-use Domain\Articles\Queries\ArticleShowQuery;
 use Illuminate\Support\Facades\View;
 use Illuminate\Contracts\View\View as ViewContract;
 
@@ -19,10 +19,8 @@ class ArticleController extends Controller
         return View::make('app.article.index', compact('articles'));
     }
 
-    public function show(ArticleShowQuery $query): ViewContract
+    public function show(Article $article): ViewContract
     {
-        $article = $query->firstOrFail();
-
         return View::make('app.article.show', compact('article'));
     }
 }

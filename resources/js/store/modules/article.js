@@ -32,9 +32,9 @@ export const mutations = {
 }
 
 export const actions = {
-    getArticleData({commit}, slug) {
+    getArticleData({commit}, id) {
         axios
-            .get(`/api/v1/articles/${slug}`)
+            .get(`/api/v1/articles/${id}`)
             .then(({data}) => {
                 commit('SET_ARTICLE', data);
             }).catch(() => {
@@ -68,12 +68,12 @@ export const actions = {
             }).catch(() => {
         });
     },
-    addComment({commit, dispatch, state, rootState}, {subject, body}) {
+    addComment({commit, dispatch, state}, {subject, body}) {
         axios
             .post(`/api/v1/articles/${state.article.id}/comments/store`, {subject, body})
             .then((response) => {
+                dispatch('getArticleData', state.article.id);
                 commit('SET_COMMENT_SENT', true);
-                dispatch('getArticleData', rootState.slug);
             }).catch(({response}) => {
             if (response.status === 422) {
                 state.errors = response.data.errors;

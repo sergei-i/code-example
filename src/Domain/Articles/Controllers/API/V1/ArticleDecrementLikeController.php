@@ -9,6 +9,7 @@ use Domain\Articles\Actions\DecrementArticleLikeAction;
 use Domain\Articles\Models\Article;
 use Domain\Articles\Resources\API\V1\ArticleResource;
 use Illuminate\Http\JsonResponse;
+use Throwable;
 
 class ArticleDecrementLikeController extends Controller
 {
@@ -17,6 +18,11 @@ class ArticleDecrementLikeController extends Controller
     ) {
     }
 
+    /**
+     * @param Article $article
+     * @return JsonResponse
+     * @throws Throwable
+     */
     public function __invoke(Article $article): JsonResponse
     {
         ($this->decrementArticleLikeAction)($article);

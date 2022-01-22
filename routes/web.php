@@ -13,6 +13,6 @@ Route::prefix('articles')
     ->name('articles.')
     ->group(function () {
         Route::get('/', [ArticleController::class, 'index'])->name('index');
-        Route::get('{slug}', [ArticleController::class, 'show'])->name('show');
+        Route::get('{article:slug}', [ArticleController::class, 'show'])->name('show');
         Route::get('tag/{tag}', ArticleTagController::class)->name('tag');
     });

@@ -13,10 +13,8 @@ const app = new Vue({
     el: '#app',
     store,
     created() {
-        const url = window.location.pathname;
-        const slug = url.substring(url.lastIndexOf('/') + 1);
-        this.$store.commit('SET_SLUG', slug);
-        this.$store.dispatch('article/getArticleData', slug);
+        const id = document.getElementById('app').getAttribute('data-article-id');
+        this.$store.dispatch('article/getArticleData', id);
         this.$store.dispatch('article/incrementViews');
     }
 });

@@ -11,8 +11,8 @@ class ArticleStoreCommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'subject' => ['required', 'string', 'min:6'],
-            'body' => ['required', 'string', 'min:10'],
+            'subject' => ['required', 'string', 'min:6', 'max:100'],
+            'body' => ['required', 'string', 'min:10', 'max:10000'],
         ];
     }
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     </head>
@@ -31,7 +31,7 @@
                     </ul>
                     <a
                         class="d-flex justify-content-end"
-                        href="https://github.com/sergei-i/test-example"
+                        href="https://github.com/sergei-i/code-example"
                         target="_blank"
                     >
                         <i class="bi bi-github" style="font-size: 2rem; color: #000000;"></i>
