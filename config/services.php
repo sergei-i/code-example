@@ -30,4 +30,5 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'placeholder_url' => env('PLACEHOLDER_URL', 'https://via.placeholder.com/600/0D6EFD/FFFFFF/?text=CODE EXAMPLE'),
 ];
